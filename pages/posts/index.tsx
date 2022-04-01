@@ -1,19 +1,26 @@
-import { GetStaticProps, GetStaticPropsContext } from 'next';
-import React from 'react';
+import { GetStaticProps, GetStaticPropsContext } from 'next'
+import Link from 'next/link'
+import React from 'react'
 
 export interface PostListPageProps {
   posts: any[]
 }
 
-export default function PostListPage ({posts}: PostListPageProps) {
-  console.log('posts', posts);
-  
+export default function PostListPage({ posts }: PostListPageProps) {
+  // console.log('posts', posts);
+
   return (
     <div>
       <h1>Post List Page</h1>
       <div>
         <ul>
-          {posts.map(post => <li key={post.id}>{post.title}</li> )}
+          {posts.map((post) => (
+            <li key={post.id}>
+              <Link href={`/posts/${post.id}`}>
+                <a>{post.title}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
