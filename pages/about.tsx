@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 // else normal it will render from server using import normal 
 import Header from 'components/common/header'
 import { Router, useRouter } from 'next/router';
+import { MainLayout } from '@/components/layouts';
 // const Header = dynamic(()=> import('components/common/header'), {ssr: false})
 export interface AboutPageProps {
 }
@@ -47,6 +48,8 @@ export default function AboutPage (props: AboutPageProps) {
     </div>
   );
 }
+
+AboutPage.Layout = MainLayout
 
 export function getStaticProps (){
   console.log('get static props');

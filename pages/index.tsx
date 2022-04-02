@@ -1,3 +1,5 @@
+import { MainLayout } from '@/components/layouts'
+import { NextPageWithLayout } from '@/models'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -5,7 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const router = useRouter()
   const goDetailPost = () =>{
     router.push({
@@ -28,7 +30,8 @@ const Home: NextPage = () => {
     })
   }
   return (
-    <div className={styles.container}>
+    <div>
+      <div className={styles.container}>
       <Head>
         <title>My App</title>
         <meta name="description" content="ReactJs + NextJS + TypeScript" />
@@ -101,7 +104,10 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
+    </div>
   )
 }
+
+Home.Layout = MainLayout
 
 export default Home
